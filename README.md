@@ -30,3 +30,4 @@ Check out the app by running the project locally:
 The app uses several light-weight dependencies to run:
 
 - *[Vite](https://vitejs.dev)* as a fast development server for vanilla JavaScript
+- *[tailwindcss](https://tailwindcss.com)* for consistent styling directly in the HTML markup
