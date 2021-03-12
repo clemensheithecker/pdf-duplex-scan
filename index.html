@@ -4,16 +4,42 @@
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="An app to fix the page order of a double-sided PDF scan from a scanner without duplex feature."
+      content="An app to fix the page order of a double-sided PDF scan from a scanner without a duplex feature."
     />
-    <meta name="author" content="Clemens S. Heithecker">
+    <meta name="author" content="Clemens S. Heithecker" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rearrange PDF as Duplex Scan</title>
   </head>
   <body>
-    <h1>Rearrange PDF as duplex scan</h1>
+    <div>
+      <h1>Rearrange PDF as duplex scan</h1>
+      <p>
+        Correct the page order of a double-sided PDF scan from a scanner without
+        a duplex feature. The app rearranges a PDF with page order in the form
+        (1,3,5,4,2) to the correct order (1,2,3,4,5).
+      </p>
+      <form id="form">
+        <div>
+          <button id="dropzone">Drop or select PDF</button>
+          <input type="file" accept=".pdf" required hidden id="file" />
+          <small>Please select a PDF file</small>
+        </div>
+        <div>
+          <label for="fileName">File name</label>
+          <input type="text" required id="fileName" />
+          <small>Please name the PDF file</small>
+        </div>
+        <input type="submit" value="Rearrange PDF" id="submit" />
+      </form>
+    </div>
+    <p>
+      A project by
+      <a href="https://twitter.com/cheithecker">Clemens S. Heithecker</a>. View
+      the source code on
+      <a href="https://github.com/clemensheithecker/pdf-duplex-scan">GitHub</a>.
+    </p>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

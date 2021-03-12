@@ -1,6 +1,6 @@
 # Rearrange PDF as Duplex Scan
 
-An app to fix the page order of a double-sided PDF scan from a scanner without duplex feature.
+An app to fix the page order of a double-sided PDF scan from a scanner without a duplex feature.
 
 ## Getting started
 
