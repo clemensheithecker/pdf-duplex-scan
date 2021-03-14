@@ -31,3 +31,5 @@ The app uses several light-weight dependencies to run:
 
 - *[Vite](https://vitejs.dev)* as a fast development server for vanilla JavaScript
 - *[tailwindcss](https://tailwindcss.com)* and its *[@tailwindcss/forms](https://github.com/tailwindlabs/tailwindcss-forms)* plugin for consistent styling directly in the HTML markup
+- *[pdf-lib](https://pdf-lib.js.org/)* to create and modify PDF documents
+- *[downloadjs](http://danml.com/download.html)* to download files from JavaScript

@@ -1,3 +1,6 @@
+import download from "downloadjs";
+import { PDFDocument } from "pdf-lib";
+
 // Get HTML elements
 const dropzone = document.getElementById("dropzone");
 const fileInput = document.getElementById("fileInput");
@@ -7,7 +10,7 @@ const submit = document.getElementById("submit");
 
 // Declare local variables for source PDF file
 let sourcePdfBinary;
-let sourcePdfName;
+let pdfName;
 
 dropzone.addEventListener("dragenter", (e) => {
   e.stopPropagation();
@@ -68,13 +71,13 @@ dropzone.addEventListener("drop", (e) => {
 
   // Get source PDF file name, remove file extension (.pdf) and any everything
   // but a word character, underscore, space, or minus (-)
-  sourcePdfName = dataTransfer.files[0].name
+  pdfName = dataTransfer.files[0].name
     .replace(".pdf", "")
     .replace(/[^\w -]/g, "")
     .trim();
 
   // Set file name input to source PDF file name
-  fileName.value = sourcePdfName;
+  fileName.value = pdfName;
 });
 
 // Open file selection dialog on dropzone click
@@ -98,20 +101,20 @@ fileInput.addEventListener("change", () => {
 
   // Get source PDF file name, remove file extension (.pdf) and any everything
   // but a word character, underscore, space, or minus (-)
-  sourcePdfName = fileInput.files[0].name
+  pdfName = fileInput.files[0].name
     .replace(".pdf", "")
     .replace(/[^\w -]/g, "")
     .trim();
 
   // Set file name input to source PDF file name
-  fileName.value = sourcePdfName;
+  fileName.value = pdfName;
 });
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   // Update source PDF file name
-  sourcePdfName = fileName.value;
+  pdfName = fileName.value;
 
   if (checkInputs()) {
     // Show success message and style on submit button
@@ -129,6 +132,8 @@ form.addEventListener("submit", (e) => {
     fileName.disabled = true;
 
     dropzone.classList.remove("hover:bg-indigo-100");
+
+    createPdf();
   }
 });
 
@@ -137,13 +142,13 @@ function checkInputs() {
   // Declare local error state to indicate if an error exists
   let isError;
 
-  if (sourcePdfName === "") {
+  if (pdfName === "") {
     // Show error message and styles
     setErrorFor(fileName, "Please name the PDF file");
 
     // Update error state
     isError = true;
-  } else if (!isFileName(sourcePdfName)) {
+  } else if (!isFileName(pdfName)) {
     // Show error message and styles
     setErrorFor(
       fileName,
@@ -203,4 +208,64 @@ function isFileName(fileName) {
   // Returns true if fileName consists only of a word character, underscore,
   // space, or minus (-)
   return /^[ \w\s-]+$/.test(fileName);
+}
+
+async function createPdf() {
+  // Load source PDF as PDFDocument
+  const sourcePdfDocument = await PDFDocument.load(sourcePdfBinary);
+
+  // Create result PDF
+  const resultPdfDocument = await rearrangePdf(sourcePdfDocument);
+
+  // Serialize PDFDocument to bytes
+  const resultPdfBinary = await resultPdfDocument.save();
+
+  // Trigger browser to download PDF document
+  download(resultPdfBinary, pdfName, "application/pdf");
+}
+
+async function rearrangePdf(sourcePdfDocument) {
+  // Create new PDFDocument
+  const outputPdfDocument = await PDFDocument.create();
+
+  // Get number of pages from source PDF
+  const pageCount = sourcePdfDocument.getPageCount();
+
+  // Declare and set indices for odd and even pages from source PDF
+  let oddPageIndex = 0;
+  let evenPageIndex = pageCount - 1;
+
+  for (let pageIndex = 0; pageIndex < pageCount; pageIndex++) {
+    // Inset odd pages (even pageIndex)
+    if (pageIndex % 2 === 0) {
+      // Copy page from source PDF
+      const [copiedPage] = await outputPdfDocument.copyPages(
+        sourcePdfDocument,
+        [oddPageIndex]
+      );
+
+      // Insert copied page into output PDF
+      outputPdfDocument.insertPage(pageIndex, copiedPage);
+
+      // Update odd index of source PDF
+      oddPageIndex++;
+    }
+
+    // Inset even pages (odd pageIndex)
+    else {
+      // Copy page from source PDF
+      const [copiedPage] = await outputPdfDocument.copyPages(
+        sourcePdfDocument,
+        [evenPageIndex]
+      );
+
+      // Insert copied page into output PDF
+      outputPdfDocument.insertPage(pageIndex, copiedPage);
+
+      // Update even index of source PDF
+      evenPageIndex--;
+    }
+  }
+
+  return outputPdfDocument;
 }
