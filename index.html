@@ -12,27 +12,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rearrange PDF as Duplex Scan</title>
   </head>
-  <body class="flex items-center justify-center bg-gray-100">
+  <body
+    class="flex items-center justify-center bg-gray-100 dark:bg-black dark:text-gray-200"
+  >
     <div class="max-w-4xl mx-4 my-12">
-      <div class="p-10 bg-white rounded-xl">
+      <div class="p-10 bg-white rounded-xl dark:bg-gray-900">
         <h1 class="text-2xl font-bold">Rearrange PDF as duplex scan</h1>
-        <p class="mt-2">
+        <p class="mt-2 text-gray-900 dark:text-gray-300">
           Correct the page order of a double-sided PDF scan from a scanner
           without a duplex feature. The app rearranges a PDF with page order in
           the form <span class="font-mono text-sm">(1,3,5,4,2)</span> to the
           correct order <span class="font-mono text-sm">(1,2,3,4,5)</span>.
         </p>
-        <p class="mt-2">
+        <p class="mt-2 text-gray-900 dark:text-gray-300">
           Try out the app with two example PDF files:
           <a
             href="https://github.com/clemensheithecker/pdf-duplex-scan/raw/main/pdf-examples/pdf-example-1.pdf"
-            class="text-blue-600 underline focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500"
+            class="text-blue-600 underline dark:text-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500"
             >Example 1</a
           >
           and
           <a
             href="https://github.com/clemensheithecker/pdf-duplex-scan/raw/main/pdf-examples/pdf-example-2.pdf"
-            class="text-blue-600 underline focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500"
+            class="text-blue-600 underline dark:text-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500"
             >Example 2</a
           >.
         </p>
@@ -40,7 +42,7 @@
           <div>
             <button
               id="dropzone"
-              class="w-full h-32 rounded-md bg-indigo-50 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              class="w-full h-32 rounded-md bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-600 dark:hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Drop or select PDF
             </button>
@@ -56,7 +58,7 @@
             <input
               type="text"
               id="fileName"
-              class="w-full h-12 mt-1 border-gray-300 rounded-lg focus:border-gray-300 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              class="w-full h-12 mt-1 border-gray-300 rounded-lg dark:bg-gray-900 dark:border-gray-600 dark:focus:border-gray-600 focus:border-gray-300 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             />
             <p class="mt-1">
               <small class="invisible font-medium text-red-600"
@@ -68,20 +70,20 @@
             type="submit"
             value="Rearrange PDF"
             id="submit"
-            class="w-full h-12 py-2 mt-2 text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="w-full h-12 py-2 mt-2 text-white bg-indigo-600 border border-transparent rounded-md dark:bg-indigo-800 hover:bg-indigo-700 dark:hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           />
         </form>
       </div>
-      <p class="mx-2 mt-2">
+      <p class="mx-2 mt-2 text-gray-900 dark:text-gray-300">
         A project by
         <a
           href="https://twitter.com/cheithecker"
-          class="text-blue-600 underline focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500"
+          class="text-blue-600 underline dark:text-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500"
           >Clemens S. Heithecker</a
         >. View the source code on
         <a
           href="https://github.com/clemensheithecker/pdf-duplex-scan"
-          class="text-blue-600 underline focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500"
+          class="text-blue-600 underline dark:text-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500"
           >GitHub</a
         >.
       </p>

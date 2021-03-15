@@ -19,6 +19,7 @@ dropzone.addEventListener("dragenter", (e) => {
   // Add focus style on drag enter
   dropzone.classList.add(
     "bg-indigo-100",
+    "dark:bg-indigo-700",
     "ring-2",
     "ring-offset-2",
     "ring-indigo-500"
@@ -34,6 +35,7 @@ dropzone.addEventListener("dragleave", () => {
   // Remove focus style on drag leave
   dropzone.classList.remove(
     "bg-indigo-100",
+    "dark:bg-indigo-700",
     "ring-2",
     "ring-offset-2",
     "ring-indigo-500"
@@ -47,6 +49,7 @@ dropzone.addEventListener("drop", (e) => {
   // Remove focus style on drop
   dropzone.classList.remove(
     "bg-indigo-100",
+    "dark:bg-indigo-700",
     "ring-2",
     "ring-offset-2",
     "ring-indigo-500"
@@ -64,8 +67,13 @@ dropzone.addEventListener("drop", (e) => {
 
     // Reset submit button styles
     submit.value = "Rearrange PDF!";
-    submit.classList.remove("bg-green-600");
-    submit.classList.add("bg-indigo-600", "hover:bg-indigo-700");
+    submit.classList.remove("bg-green-600", "dark:bg-green-800");
+    submit.classList.add(
+      "bg-indigo-600",
+      "dark:bg-indigo-800",
+      "hover:bg-indigo-700",
+      "dark:hover:bg-indigo-900"
+    );
   }
 
   // Hold data that is dropped on dropzone
@@ -134,10 +142,11 @@ form.addEventListener("submit", (e) => {
     submit.value = "Success!";
     submit.classList.remove(
       "bg-indigo-600",
-      "bg-indigo-700",
-      "hover:bg-indigo-700"
+      "dark:bg-indigo-800",
+      "hover:bg-indigo-700",
+      "dark:hover:bg-indigo-900"
     );
-    submit.classList.add("bg-green-600");
+    submit.classList.add("bg-green-600", "dark:bg-green-800");
 
     // Disable inputs
     submit.disabled = true;
@@ -201,7 +210,13 @@ function setErrorFor(input, message) {
   smallElement.innerText = message;
 
   // Add error styling
-  input.classList.add("border-2", "border-red-500", "focus:border-red-500");
+  input.classList.add(
+    "border-2",
+    "border-red-500",
+    "dark:border-red-500",
+    "focus:border-red-500",
+    "dark:focus:border-red-500"
+  );
   smallElement.classList.remove("invisible");
 }
 
@@ -210,7 +225,13 @@ function setSuccessFor(input) {
   const smallElement = inputParentElement.querySelector("small");
 
   // Remove error styling
-  input.classList.remove("border-2", "border-red-500", "focus:border-red-500");
+  input.classList.remove(
+    "border-2",
+    "border-red-500",
+    "dark:border-red-500",
+    "focus:border-red-500",
+    "dark:focus:border-red-500"
+  );
   smallElement.classList.add("invisible");
 }
 
