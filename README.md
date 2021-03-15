@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://repository-images.githubusercontent.com/347136521/69873c80-853a-11eb-8368-084c1238e134" width="600">
+</p>
+
 # Rearrange PDF as Duplex Scan
 
 An app to fix the page order of a double-sided PDF scan from a scanner without a duplex feature.
