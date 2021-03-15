@@ -53,7 +53,20 @@ dropzone.addEventListener("drop", (e) => {
   );
 
   // Set focus to dropzone
-  fileName.focus();
+  dropzone.focus();
+
+  // Re-enable and reset other input fields if previously disabled because
+  // of prior jobs
+  if (submit.disabled === true && fileName.disabled === true) {
+    // Enable submit button and file name input
+    submit.disabled = false;
+    fileName.disabled = false;
+
+    // Reset submit button styles
+    submit.value = "Rearrange PDF!";
+    submit.classList.remove("bg-green-600");
+    submit.classList.add("bg-indigo-600", "hover:bg-indigo-700");
+  }
 
   // Hold data that is dropped on dropzone
   const dataTransfer = e.dataTransfer;
@@ -128,10 +141,7 @@ form.addEventListener("submit", (e) => {
 
     // Disable inputs
     submit.disabled = true;
-    dropzone.disabled = true;
     fileName.disabled = true;
-
-    dropzone.classList.remove("hover:bg-indigo-100");
 
     createPdf();
   }
