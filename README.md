@@ -4,9 +4,7 @@
 
 # Rearrange PDF as Duplex Scan
 
-An app to fix the page order of a double-sided PDF scan from a scanner without a duplex feature.
-
-It corrects the page order of a double-sided PDF scan from a scanner without a duplex feature. It rearranges a PDF with page order in the form `(1,3,5,4,2)` to the correct order `(1,2,3,4,5)`.
+An app to fix the page order of a double-sided PDF scan from a scanner without a duplex feature. It rearranges a PDF with page order in the form `(1,3,5,4,2)` to the correct order `(1,2,3,4,5)`.
 
 Try out the app on [pdf-duplex-scan.vercel.app](https://pdf-duplex-scan.vercel.app) with two example PDF files: [Example 1](https://github.com/clemensheithecker/pdf-duplex-scan/raw/main/pdf-examples/pdf-example-1.pdf) and [Example 2](https://github.com/clemensheithecker/pdf-duplex-scan/raw/main/pdf-examples/pdf-example-2.pdf).
 
