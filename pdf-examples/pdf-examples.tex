@@ -1,0 +1,44 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1.5cm]{geometry}
+\usepackage[pdftex,
+	pdfauthor={Clemens Stefan Heithecker},
+	pdftitle={Example 2-Reorder PDF as Duplex Scan},
+	pdfproducer={LaTeX},
+	pdfcreator={LaTeX}]{hyperref}
+\usepackage[sfdefault]{roboto}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+
+\definecolor{gray400}{RGB}{161, 161, 170}
+\definecolor{gray600}{RGB}{82, 82, 91}
+
+\newcommand{\footer}{\par\noindent\ignorespacesafterend\textcolor{gray600}{Reorder this example PDF document as a duplex scan.\\[0.5em]
+A project by \underline{\href{https://clemensheithecker.com/}{Clemens S. Heithecker}}. View the source code on \underline{\href{https://github.com/clemensheithecker/pdf-duplex-scan}{GitHub}}.}}
+\newcommand{\frontpage}{\begingroup\fontsize{2em}{0em}\selectfont\textcolor{gray400}{FRONT PAGE}\endgroup}
+\newcommand{\backpage}{\begingroup\fontsize{2em}{0em}\selectfont\textcolor{gray400}{BACK PAGE}\endgroup}
+\newcommand{\digit}[1]{\begin{center}\fontsize{48em}{0em}\selectfont\textbf{#1}\end{center}}
+\newcounter{num}
+\newcommand{\page}[1]{\hspace{0pt}\setcounter{num}{#1}\ifodd\value{num}{\frontpage}\else{\backpage}\fi\vfill\digit{#1}\vfill\hspace{0pt}\footer}
+
+\pagestyle{empty}
+\parindent 0ex
+
+\begin{document}
+\page{1}
+
+\newpage
+\page{3}
+
+\newpage
+\page{5}
+
+\newpage
+\page{6}
+
+\newpage
+\page{4}
+
+\newpage
+\page{2}
+\end{document}
