@@ -18,11 +18,13 @@ dropzone.addEventListener("dragenter", (e) => {
 
   // Add focus style on drag enter
   dropzone.classList.add(
-    "bg-indigo-100",
-    "dark:bg-indigo-700",
+    "bg-blue-100",
+    "dark:bg-blue-800",
     "ring-2",
     "ring-offset-2",
-    "ring-indigo-500"
+    "ring-blue-800",
+    "dark:ring-blue-300",
+    "dark:ring-offset-gray-900"
   );
 });
 
@@ -34,11 +36,13 @@ dropzone.addEventListener("dragover", (e) => {
 dropzone.addEventListener("dragleave", () => {
   // Remove focus style on drag leave
   dropzone.classList.remove(
-    "bg-indigo-100",
-    "dark:bg-indigo-700",
+    "bg-blue-100",
+    "dark:bg-blue-800",
     "ring-2",
     "ring-offset-2",
-    "ring-indigo-500"
+    "ring-blue-800",
+    "dark:ring-blue-300",
+    "dark:ring-offset-gray-900"
   );
 });
 
@@ -48,11 +52,13 @@ dropzone.addEventListener("drop", (e) => {
 
   // Remove focus style on drop
   dropzone.classList.remove(
-    "bg-indigo-100",
-    "dark:bg-indigo-700",
+    "bg-blue-100",
+    "dark:bg-blue-800",
     "ring-2",
     "ring-offset-2",
-    "ring-indigo-500"
+    "ring-blue-800",
+    "dark:ring-blue-300",
+    "dark:ring-offset-gray-900"
   );
 
   // Set focus to dropzone
@@ -66,13 +72,13 @@ dropzone.addEventListener("drop", (e) => {
     fileName.disabled = false;
 
     // Reset submit button styles
-    submit.value = "Rearrange PDF!";
+    submit.value = "Reorder PDF!";
     submit.classList.remove("bg-green-600", "dark:bg-green-800");
     submit.classList.add(
-      "bg-indigo-600",
-      "dark:bg-indigo-800",
-      "hover:bg-indigo-700",
-      "dark:hover:bg-indigo-900"
+      "bg-blue-600",
+      "dark:bg-blue-800",
+      "hover:bg-blue-700",
+      "dark:hover:bg-blue-700"
     );
   }
 
@@ -141,10 +147,10 @@ form.addEventListener("submit", (e) => {
     // Show success message and style on submit button
     submit.value = "Success!";
     submit.classList.remove(
-      "bg-indigo-600",
-      "dark:bg-indigo-800",
-      "hover:bg-indigo-700",
-      "dark:hover:bg-indigo-900"
+      "bg-blue-600",
+      "dark:bg-blue-800",
+      "hover:bg-blue-700",
+      "dark:hover:bg-blue-700"
     );
     submit.classList.add("bg-green-600", "dark:bg-green-800");
 
@@ -212,10 +218,10 @@ function setErrorFor(input, message) {
   // Add error styling
   input.classList.add(
     "border-2",
-    "border-red-500",
-    "dark:border-red-500",
-    "focus:border-red-500",
-    "dark:focus:border-red-500"
+    "border-red-600",
+    "dark:border-red-400",
+    "focus:border-red-600",
+    "dark:focus:border-red-400"
   );
   smallElement.classList.remove("invisible");
 }
@@ -226,12 +232,14 @@ function setSuccessFor(input) {
 
   // Remove error styling
   input.classList.remove(
-    "border-2",
-    "border-red-500",
-    "dark:border-red-500",
-    "focus:border-red-500",
-    "dark:focus:border-red-500"
+    "border-red-600",
+    "dark:border-red-400",
+    "focus:border-red-600",
+    "dark:focus:border-red-400"
   );
+  if (input !== dropzone) {
+    input.classList.remove("border-2");
+  }
   smallElement.classList.add("invisible");
 }
 

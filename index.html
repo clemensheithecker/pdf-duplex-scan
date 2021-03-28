@@ -11,35 +11,166 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="stylesheet" href="/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rearrange PDF as Duplex Scan</title>
+    <title>Double-Sided Scanning Without a Duplex Scanner</title>
   </head>
   <body
-    class="flex items-center justify-center bg-gray-100 dark:bg-black dark:text-gray-200"
+    class="flex items-center justify-center bg-gray-100 dark:bg-black dark:text-white"
   >
-    <div class="max-w-4xl mx-2 my-6 sm:my-12 sm:mx-4">
+    <div class="max-w-4xl mx-2 mt-6 sm:mt-12 sm:mx-4">
       <div class="p-6 bg-white sm:p-10 rounded-xl dark:bg-gray-900">
-        <noscript class="block px-4 py-2 mb-4 bg-red-300 rounded-md"
+        <noscript
+          class="block px-4 py-2 mb-4 bg-red-300 rounded-md dark:bg-red-800"
           >The app needs JavaScript to run. Please enable it in your
           browser.</noscript
         >
-        <h1 class="text-2xl font-bold">Rearrange PDF as duplex scan</h1>
-        <p class="mt-2 text-gray-900 dark:text-gray-300">
-          Correct the page order of a double-sided PDF scan from a scanner
-          without a duplex feature. The app rearranges a PDF with page order in
-          the form <span class="font-mono text-sm">(1,3,5,4,2)</span> to the
-          correct order <span class="font-mono text-sm">(1,2,3,4,5)</span>.
+        <h1 class="text-2xl font-bold">
+          Double-Sided Scanning Without a Duplex Scanner
+        </h1>
+        <p class="mt-2 text-gray-800 dark:text-gray-100">
+          Scanning a double-sided document with a scanner not supporting duplex
+          (double-sided) scanning breaks the page order. To solve this problem,
+          first scan the front and then the back pages with the document feeder.
+          Next, select the PDF scan and let the app fix the page order.
         </p>
-        <p class="mt-2 text-gray-900 dark:text-gray-300">
+        <div class="flex flex-col mt-4 place-items-center">
+          <figure class="max-w-sm">
+            <figcaption
+              class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+            >
+              Before
+            </figcaption>
+            <svg
+              role="img"
+              aria-labelledby="Unordered pages in the form 1, 3, 5, 4, 2"
+              viewBox="0 0 900 180"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Unordered pages</title>
+              <desc>Unordered pages in the form 1, 3, 5, 4, 2</desc>
+              <g clip-path="url(#clip0)">
+                <path
+                  class="text-gray-300 fill-current dark:text-gray-700"
+                  d="M772.335 157.5h74.176c3.935 0 7.708-1.58 10.49-4.393a15.087 15.087 0 004.345-10.607V70.605a7.54 7.54 0 00-2.173-5.303l-40.159-40.605a7.377 7.377 0 00-5.244-2.197h-41.435c-3.934 0-7.708 1.58-10.49 4.393A15.085 15.085 0 00757.5 37.5v105c0 3.978 1.563 7.794 4.345 10.607a14.753 14.753 0 0010.49 4.393z"
+                />
+                <path
+                  class="text-black fill-current dark:text-white"
+                  d="M826.808 115h-35.086v-6.961l16.559-17.648c2.273-2.485 3.949-4.653 5.027-6.504 1.102-1.852 1.653-3.61 1.653-5.274 0-2.273-.575-4.054-1.723-5.344-1.149-1.312-2.789-1.968-4.922-1.968-2.297 0-4.113.797-5.449 2.39-1.313 1.57-1.969 3.645-1.969 6.223h-10.195c0-3.117.738-5.965 2.215-8.543 1.5-2.578 3.609-4.594 6.328-6.047 2.718-1.476 5.8-2.215 9.246-2.215 5.273 0 9.363 1.266 12.269 3.797 2.93 2.531 4.395 6.106 4.395 10.723 0 2.531-.656 5.11-1.969 7.734-1.312 2.625-3.562 5.684-6.75 9.176L804.8 106.81h22.008V115z"
+                />
+                <path
+                  class="text-gray-300 fill-current dark:text-gray-700"
+                  d="M592.335 157.5h74.176c3.935 0 7.708-1.58 10.49-4.393a15.087 15.087 0 004.345-10.607V70.605a7.54 7.54 0 00-2.173-5.303l-40.159-40.605a7.377 7.377 0 00-5.244-2.197h-41.435c-3.934 0-7.708 1.58-10.49 4.393A15.085 15.085 0 00577.5 37.5v105c0 3.978 1.563 7.794 4.345 10.607a14.753 14.753 0 0010.49 4.393z"
+                />
+                <path
+                  class="text-black fill-current dark:text-white"
+                  d="M641.781 95.734h5.801v8.192h-5.801V115h-10.16v-11.074h-20.989l-.457-6.399 21.34-33.715h10.266v31.922zm-21.481 0h11.321v-18.07l-.668 1.16-10.653 16.91z"
+                />
+                <path
+                  class="text-gray-100 fill-current dark:text-gray-500"
+                  d="M412.5 157.5h75a15.001 15.001 0 0015-15V70.605a7.5 7.5 0 00-2.197-5.303l-40.605-40.605a7.502 7.502 0 00-5.303-2.197H412.5a15.001 15.001 0 00-15 15v105a15.001 15.001 0 0015 15z"
+                />
+                <path
+                  class="text-black fill-current dark:text-white"
+                  d="M433.992 89.828l2.953-26.016h28.688v8.473h-20.356l-1.265 11.004a16.106 16.106 0 017.699-1.933c4.875 0 8.695 1.511 11.461 4.535 2.766 3.023 4.148 7.253 4.148 12.691 0 3.305-.703 6.27-2.109 8.895-1.383 2.601-3.375 4.628-5.977 6.082-2.601 1.429-5.672 2.144-9.211 2.144-3.093 0-5.964-.621-8.613-1.863-2.648-1.266-4.746-3.035-6.293-5.309-1.523-2.273-2.332-4.863-2.426-7.769h10.055c.211 2.133.949 3.797 2.215 4.992 1.289 1.172 2.965 1.758 5.027 1.758 2.297 0 4.067-.821 5.309-2.461 1.242-1.664 1.863-4.008 1.863-7.032 0-2.906-.715-5.132-2.144-6.68-1.43-1.546-3.457-2.32-6.082-2.32-2.414 0-4.372.633-5.872 1.899l-.984.914-8.086-2.004z"
+                />
+                <path
+                  class="text-gray-100 fill-current dark:text-gray-500"
+                  d="M232.5 157.5h75a15.001 15.001 0 0015-15V70.605a7.5 7.5 0 00-2.197-5.303l-40.605-40.605a7.502 7.502 0 00-5.303-2.197H232.5a15.001 15.001 0 00-15 15v105a15.001 15.001 0 0015 15z"
+                />
+                <path
+                  class="text-black fill-current dark:text-white"
+                  d="M262.816 84.906h5.414c2.579 0 4.489-.644 5.731-1.933 1.242-1.29 1.863-3 1.863-5.133 0-2.063-.621-3.668-1.863-4.817-1.219-1.148-2.906-1.722-5.063-1.722-1.945 0-3.574.539-4.886 1.617-1.313 1.055-1.969 2.438-1.969 4.148h-10.16c0-2.672.715-5.062 2.144-7.172 1.453-2.132 3.469-3.796 6.047-4.992 2.602-1.195 5.461-1.793 8.578-1.793 5.414 0 9.657 1.301 12.727 3.903 3.07 2.578 4.605 6.14 4.605 10.687 0 2.344-.714 4.5-2.144 6.469-1.43 1.969-3.305 3.48-5.625 4.535 2.883 1.031 5.027 2.578 6.433 4.64 1.43 2.063 2.145 4.5 2.145 7.313 0 4.547-1.664 8.192-4.992 10.934-3.305 2.742-7.688 4.113-13.149 4.113-5.109 0-9.293-1.348-12.55-4.043-3.235-2.695-4.852-6.258-4.852-10.687h10.16c0 1.922.715 3.492 2.145 4.711 1.453 1.218 3.234 1.828 5.343 1.828 2.414 0 4.301-.633 5.661-1.899 1.382-1.289 2.074-2.988 2.074-5.097 0-5.11-2.813-7.664-8.438-7.664h-5.379v-7.946z"
+                />
+                <path
+                  class="text-gray-100 fill-current dark:text-gray-500"
+                  d="M52.5 157.5h75a15.001 15.001 0 0015-15V70.605a7.5 7.5 0 00-2.197-5.303L99.698 24.697a7.5 7.5 0 00-5.303-2.197H52.5a15 15 0 00-15 15v105a15.001 15.001 0 0015 15z"
+                />
+                <path
+                  class="text-black fill-current dark:text-white"
+                  d="M97.16 115H87V75.836l-12.129 3.762v-8.262l21.2-7.594h1.09V115z"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0">
+                  <path d="M0 0h900v180H0z" />
+                </clipPath>
+              </defs>
+            </svg>
+          </figure>
+          <figure class="max-w-sm mt-2">
+            <figcaption
+              class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+            >
+              After
+            </figcaption>
+            <svg
+              role="img"
+              aria-labelledby="Ordered pages in the form 1, 2, 3, 4, 5"
+              viewBox="0 0 900 180"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Ordered pages</title>
+              <desc>Ordered pages in the form 1, 2, 3, 4, 5</desc>
+              <g clip-path="url(#clip0)">
+                <path
+                  class="text-gray-100 fill-current dark:text-gray-500"
+                  d="M772.5 157.5h75a15.001 15.001 0 0015-15V70.605a7.5 7.5 0 00-2.197-5.303l-40.605-40.605a7.502 7.502 0 00-5.303-2.197H772.5a15.001 15.001 0 00-15 15v105a15.001 15.001 0 0015 15z"
+                />
+                <path
+                  class="text-black fill-current dark:text-white"
+                  d="M793.992 89.828l2.953-26.016h28.688v8.473h-20.356l-1.265 11.004a16.106 16.106 0 017.699-1.933c4.875 0 8.695 1.511 11.461 4.535 2.766 3.023 4.148 7.253 4.148 12.691 0 3.305-.703 6.27-2.109 8.895-1.383 2.601-3.375 4.628-5.977 6.082-2.601 1.429-5.672 2.144-9.211 2.144-3.093 0-5.964-.621-8.613-1.863-2.648-1.266-4.746-3.035-6.293-5.309-1.523-2.273-2.332-4.863-2.426-7.769h10.055c.211 2.133.949 3.797 2.215 4.992 1.289 1.172 2.965 1.758 5.027 1.758 2.297 0 4.067-.821 5.309-2.461 1.242-1.664 1.863-4.008 1.863-7.032 0-2.906-.715-5.132-2.144-6.68-1.43-1.546-3.457-2.32-6.082-2.32-2.414 0-4.372.633-5.872 1.899l-.984.914-8.086-2.004z"
+                />
+                <path
+                  class="text-gray-300 fill-current dark:text-gray-700"
+                  d="M592.335 157.5h74.176c3.935 0 7.708-1.58 10.49-4.393a15.087 15.087 0 004.345-10.607V70.605a7.54 7.54 0 00-2.173-5.303l-40.159-40.605a7.377 7.377 0 00-5.244-2.197h-41.435c-3.934 0-7.708 1.58-10.49 4.393A15.085 15.085 0 00577.5 37.5v105c0 3.978 1.563 7.794 4.345 10.607a14.753 14.753 0 0010.49 4.393z"
+                />
+                <path
+                  class="text-black fill-current dark:text-white"
+                  d="M641.781 95.734h5.801v8.192h-5.801V115h-10.16v-11.074h-20.989l-.457-6.399 21.34-33.715h10.266v31.922zm-21.481 0h11.321v-18.07l-.668 1.16-10.653 16.91z"
+                />
+                <path
+                  class="text-gray-100 fill-current dark:text-gray-500"
+                  d="M412.5 157.5h75a15.001 15.001 0 0015-15V70.605a7.5 7.5 0 00-2.197-5.303l-40.605-40.605a7.502 7.502 0 00-5.303-2.197H412.5a15.001 15.001 0 00-15 15v105a15.001 15.001 0 0015 15z"
+                />
+                <path
+                  class="text-black fill-current dark:text-white"
+                  d="M442.816 84.906h5.414c2.579 0 4.489-.644 5.731-1.933 1.242-1.29 1.863-3 1.863-5.133 0-2.063-.621-3.668-1.863-4.817-1.219-1.148-2.906-1.722-5.063-1.722-1.945 0-3.574.539-4.886 1.617-1.313 1.055-1.969 2.438-1.969 4.148h-10.16c0-2.672.715-5.062 2.144-7.172 1.453-2.132 3.469-3.796 6.047-4.992 2.602-1.195 5.461-1.793 8.578-1.793 5.414 0 9.657 1.301 12.727 3.903 3.07 2.578 4.605 6.14 4.605 10.687 0 2.344-.714 4.5-2.144 6.469-1.43 1.969-3.305 3.48-5.625 4.535 2.883 1.031 5.027 2.578 6.433 4.64 1.43 2.063 2.145 4.5 2.145 7.313 0 4.547-1.664 8.192-4.992 10.934-3.305 2.742-7.688 4.113-13.149 4.113-5.109 0-9.293-1.348-12.55-4.043-3.235-2.695-4.852-6.258-4.852-10.687h10.16c0 1.922.715 3.492 2.145 4.711 1.453 1.218 3.234 1.828 5.343 1.828 2.414 0 4.301-.633 5.661-1.899 1.382-1.289 2.074-2.988 2.074-5.097 0-5.11-2.813-7.664-8.438-7.664h-5.379v-7.946z"
+                />
+                <path
+                  class="text-gray-300 fill-current dark:text-gray-700"
+                  d="M232.335 157.5h74.176c3.935 0 7.708-1.58 10.49-4.393a15.087 15.087 0 004.345-10.607V70.605a7.54 7.54 0 00-2.173-5.303l-40.159-40.605a7.377 7.377 0 00-5.244-2.197h-41.435c-3.934 0-7.708 1.58-10.49 4.393A15.085 15.085 0 00217.5 37.5v105c0 3.978 1.563 7.794 4.345 10.607a14.753 14.753 0 0010.49 4.393z"
+                />
+                <path
+                  class="text-black fill-current dark:text-white"
+                  d="M286.808 115h-35.086v-6.961l16.559-17.648c2.273-2.485 3.949-4.653 5.027-6.504 1.102-1.852 1.652-3.61 1.652-5.274 0-2.273-.574-4.054-1.722-5.344-1.149-1.312-2.789-1.968-4.922-1.968-2.297 0-4.113.797-5.449 2.39-1.313 1.57-1.969 3.645-1.969 6.223h-10.195c0-3.117.738-5.965 2.214-8.543 1.5-2.578 3.61-4.594 6.329-6.047 2.718-1.476 5.8-2.215 9.246-2.215 5.273 0 9.363 1.266 12.269 3.797 2.93 2.531 4.395 6.106 4.395 10.723 0 2.531-.656 5.11-1.969 7.734-1.312 2.625-3.562 5.684-6.75 9.176L264.8 106.81h22.008V115z"
+                />
+                <path
+                  class="text-gray-100 fill-current dark:text-gray-500"
+                  d="M52.5 157.5h75a15.001 15.001 0 0015-15V70.605a7.5 7.5 0 00-2.197-5.303L99.698 24.697a7.5 7.5 0 00-5.303-2.197H52.5a15 15 0 00-15 15v105a15.001 15.001 0 0015 15z"
+                />
+                <path
+                  class="text-black fill-current dark:text-white"
+                  d="M97.16 115H87V75.836l-12.129 3.762v-8.262l21.2-7.594h1.09V115z"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0">
+                  <path d="M0 0h900v180H0z" />
+                </clipPath>
+              </defs>
+            </svg>
+          </figure>
+        </div>
+        <p class="mt-4 text-gray-800 dark:text-gray-100">
           Try out the app with two example PDF files:
           <a
             href="https://github.com/clemensheithecker/pdf-duplex-scan/raw/main/pdf-examples/pdf-example-1.pdf"
-            class="text-blue-600 underline dark:text-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500"
+            class="font-medium text-blue-800 underline dark:text-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-800 dark:focus:ring-blue-300 dark:focus:ring-offset-gray-900"
             >Example 1</a
           >
           and
           <a
             href="https://github.com/clemensheithecker/pdf-duplex-scan/raw/main/pdf-examples/pdf-example-2.pdf"
-            class="text-blue-600 underline dark:text-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500"
+            class="font-medium text-blue-800 underline dark:text-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-800 dark:focus:ring-blue-300 dark:focus:ring-offset-gray-900"
             >Example 2</a
           >.
         </p>
@@ -47,13 +178,14 @@
           <div>
             <button
               id="dropzone"
-              class="w-full h-32 rounded-md bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-600 dark:hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              class="w-full h-40 font-semibold border-2 border-blue-400 border-dashed rounded-md bg-blue-50 hover:bg-blue-100 dark:border-blue-500 dark:bg-blue-900 dark:hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-800 dark:focus:ring-blue-300 dark:focus:ring-offset-gray-900"
             >
-              Drop or select PDF
+              Drop or select a PDF
             </button>
             <input type="file" accept=".pdf" hidden id="fileInput" />
             <p class="mt-1">
-              <small class="invisible font-medium text-red-600"
+              <small
+                class="invisible text-sm font-medium text-red-600 dark:text-red-400"
                 >Please select a PDF file</small
               >
             </p>
@@ -63,32 +195,33 @@
             <input
               type="text"
               id="fileName"
-              class="w-full h-12 mt-1 border-gray-300 rounded-lg dark:bg-gray-900 dark:border-gray-600 dark:focus:border-gray-600 focus:border-gray-300 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              class="w-full h-12 mt-1 border-gray-300 rounded-md dark:bg-gray-900 dark:border-gray-700 dark:focus:border-gray-700 focus:border-gray-300 focus:ring-2 focus:ring-offset-2 focus:ring-blue-800 dark:focus:ring-blue-300 dark:focus:ring-offset-gray-900"
             />
             <p class="mt-1">
-              <small class="invisible font-medium text-red-600"
+              <small
+                class="invisible text-sm font-medium text-red-600 dark:text-red-400"
                 >Please name the PDF file</small
               >
             </p>
           </div>
           <input
             type="submit"
-            value="Rearrange PDF"
+            value="Reorder PDF"
             id="submit"
-            class="w-full h-12 py-2 mt-2 text-white bg-indigo-600 border border-transparent rounded-md dark:bg-indigo-800 hover:bg-indigo-700 dark:hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="w-full h-12 py-2 mt-2 text-white bg-blue-600 rounded-md dark:bg-blue-800 hover:bg-blue-700 dark:hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-800 dark:focus:ring-blue-300 dark:focus:ring-offset-gray-900"
           />
         </form>
       </div>
-      <p class="mx-2 mt-2 text-gray-900 dark:text-gray-300">
+      <p class="mx-4 mt-2 text-gray-800 dark:text-gray-100">
         A project by
         <a
           href="https://twitter.com/cheithecker"
-          class="text-blue-600 underline dark:text-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500"
+          class="font-medium text-blue-800 underline dark:text-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-800 dark:focus:ring-blue-300 dark:focus:ring-offset-gray-900"
           >Clemens S. Heithecker</a
         >. View the source code on
         <a
           href="https://github.com/clemensheithecker/pdf-duplex-scan"
-          class="text-blue-600 underline dark:text-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500"
+          class="font-medium text-blue-800 underline dark:text-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-800 dark:focus:ring-blue-300 dark:focus:ring-offset-gray-900"
           >GitHub</a
         >.
       </p>
