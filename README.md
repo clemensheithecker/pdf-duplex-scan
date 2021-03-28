@@ -13,6 +13,7 @@ Try out the app on [pdf-duplex-scan.vercel.app](https://pdf-duplex-scan.vercel.a
 - Array reordering based on pattern
 - User interface for dark and light color schemes
 - JavaScript browser validation
+- File format validation
 
 ## Getting started
 

@@ -64,24 +64,6 @@ dropzone.addEventListener("drop", (e) => {
   // Set focus to dropzone
   dropzone.focus();
 
-  // Re-enable and reset other input fields if previously disabled because
-  // of prior jobs
-  if (submit.disabled === true && fileName.disabled === true) {
-    // Enable submit button and file name input
-    submit.disabled = false;
-    fileName.disabled = false;
-
-    // Reset submit button styles
-    submit.value = "Reorder PDF!";
-    submit.classList.remove("bg-green-600", "dark:bg-green-800");
-    submit.classList.add(
-      "bg-blue-600",
-      "dark:bg-blue-800",
-      "hover:bg-blue-700",
-      "dark:hover:bg-blue-700"
-    );
-  }
-
   // Hold data that is dropped on dropzone
   const dataTransfer = e.dataTransfer;
 
@@ -96,15 +78,61 @@ dropzone.addEventListener("drop", (e) => {
   // Read as binary file
   fileReader.readAsDataURL(dataTransfer.files[0]);
 
-  // Get source PDF file name, remove file extension (.pdf) and any everything
-  // but a word character, underscore, space, or minus (-)
-  pdfName = dataTransfer.files[0].name
-    .replace(".pdf", "")
-    .replace(/[^\w -]/g, "")
-    .trim();
+  // Get file extension
+  const fileExtension = dataTransfer.files[0].name
+    .replace(/^(.*?)\./, "")
+    .toLowerCase();
 
-  // Set file name input to source PDF file name
-  fileName.value = pdfName;
+  // Check if selected file is a PDF
+  if (fileExtension === "pdf") {
+    console.log("Hello");
+    // Reset dropzone styles
+    const dropzoneParentElement = dropzone.parentElement;
+    const smallElement = dropzoneParentElement.querySelector("small");
+
+    dropzone.classList.remove(
+      "border-red-600",
+      "dark:border-red-400",
+      "focus:border-red-600",
+      "dark:focus:border-red-400"
+    );
+    smallElement.classList.add("invisible");
+
+    // Re-enable and reset other input fields if previously disabled because
+    // of prior jobs
+    if (submit.disabled === true || fileName.disabled === true) {
+      // Enable submit button and file name input
+      submit.disabled = false;
+      fileName.disabled = false;
+
+      // Reset submit button styles
+      submit.value = "Reorder PDF!";
+      submit.classList.remove("bg-green-600", "dark:bg-green-800");
+      submit.classList.add(
+        "bg-blue-600",
+        "dark:bg-blue-800",
+        "hover:bg-blue-700",
+        "dark:hover:bg-blue-700"
+      );
+    }
+
+    // Get source PDF file name, remove file extension (.pdf) and any everything
+    // but a word character, underscore, space, or minus (-)
+    pdfName = dataTransfer.files[0].name
+      .replace(".pdf", "")
+      .replace(/[^\w_ -]/g, "")
+      .trim();
+
+    // Set file name input to source PDF file name
+    fileName.value = pdfName;
+  } else {
+    // Disable submit button
+    submit.disabled = true;
+    submit.classList.remove("hover:bg-blue-700", "dark:hover:bg-blue-700");
+
+    // Set error message for dropzone
+    setErrorFor(dropzone, "Please select a PDF file");
+  }
 });
 
 // Open file selection dialog on dropzone click
@@ -130,7 +158,7 @@ fileInput.addEventListener("change", () => {
   // but a word character, underscore, space, or minus (-)
   pdfName = fileInput.files[0].name
     .replace(".pdf", "")
-    .replace(/[^\w -]/g, "")
+    .replace(/[^\w_ -]/g, "")
     .trim();
 
   // Set file name input to source PDF file name
@@ -246,7 +274,7 @@ function setSuccessFor(input) {
 function isFileName(fileName) {
   // Returns true if fileName consists only of a word character, underscore,
   // space, or minus (-)
-  return /^[ \w\s-]+$/.test(fileName);
+  return /^[ \w_ -]+$/.test(fileName);
 }
 
 async function createPdf() {
